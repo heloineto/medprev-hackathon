@@ -1,0 +1,131 @@
+{
+  "version": "3.1",
+  "screens": [
+    {
+      "id": "RECOMMEND",
+      "title": "Avalie nosso atendimento",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "flow_path",
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Would you recommend us to a friend?"
+              },
+              {
+                "type": "RadioButtonsGroup",
+                "label": "Choose one",
+                "name": "recommend_radio",
+                "data-source": [
+                  { "id": "0_5_-_Muito_Boa", "title": "5 - Muito Boa" },
+                  { "id": "1_4_-_Boa", "title": "4 - Boa" },
+                  { "id": "2_3_-_Ok", "title": "3 - Ok" },
+                  { "id": "3_2_-_Ruim", "title": "2 - Ruim" },
+                  { "id": "4_1_-_Muito_Ruim", "title": "1 - Muito Ruim" }
+                ],
+                "required": true
+              },
+              { "type": "TextSubheading", "text": "How could we do better?" },
+              {
+                "type": "TextArea",
+                "label": "Leave a comment",
+                "required": false,
+                "name": "comment_text"
+              },
+              {
+                "type": "Footer",
+                "label": "Enviar",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": { "type": "screen", "name": "RATE" },
+                  "payload": {
+                    "screen_0_recommend_0": "${form.recommend_radio}",
+                    "screen_0_comment_1": "${form.comment_text}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "RATE",
+      "title": "Feedback 2 of 2",
+      "data": {
+        "screen_0_recommend_0": { "type": "string", "__example__": "Example" },
+        "screen_0_comment_1": { "type": "string", "__example__": "Example" }
+      },
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "flow_path",
+            "children": [
+              { "type": "TextSubheading", "text": "Rate the following: " },
+              {
+                "type": "Dropdown",
+                "label": "Purchase experience",
+                "required": true,
+                "name": "purchase_rating",
+                "data-source": [
+                  { "id": "0", "title": "★★★★★ • Excellent (5/5)" },
+                  { "id": "1", "title": "★★★★☆ • Good (4/5)" },
+                  { "id": "2", "title": "★★★☆☆ • Average (3/5)" },
+                  { "id": "3", "title": "★★☆☆☆ • Poor (2/5)" },
+                  { "id": "4", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                ]
+              },
+              {
+                "type": "Dropdown",
+                "label": "Delivery and setup",
+                "required": true,
+                "name": "delivery_rating",
+                "data-source": [
+                  { "id": "0", "title": "★★★★★ • Excellent (5/5)" },
+                  { "id": "1", "title": "★★★★☆ • Good (4/5)" },
+                  { "id": "2", "title": "★★★☆☆ • Average (3/5)" },
+                  { "id": "3", "title": "★★☆☆☆ • Poor (2/5)" },
+                  { "id": "4", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                ]
+              },
+              {
+                "type": "Dropdown",
+                "label": "Customer service",
+                "required": true,
+                "name": "cs_rating",
+                "data-source": [
+                  { "id": "0", "title": "★★★★★ • Excellent (5/5)" },
+                  { "id": "1", "title": "★★★★☆ • Good (4/5)" },
+                  { "id": "2", "title": "★★★☆☆ • Average (3/5)" },
+                  { "id": "3", "title": "★★☆☆☆ • Poor (2/5)" },
+                  { "id": "4", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                ]
+              },
+              {
+                "type": "Footer",
+                "label": "Done",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_1_purchase_0": "${form.purchase_rating}",
+                    "screen_1_delivery_1": "${form.delivery_rating}",
+                    "screen_1_cs_2": "${form.cs_rating}",
+                    "screen_0_recommend_0": "${data.screen_0_recommend_0}",
+                    "screen_0_comment_1": "${data.screen_0_comment_1}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

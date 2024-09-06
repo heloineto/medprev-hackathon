@@ -1,0 +1,205 @@
+// {
+//     _respondedRef: { responded: true },
+//     _turnState: TurnContextStateCollection(6) [Map] {
+//       'httpStatus' => 200,
+//       Symbol(state) => {
+//         state: [Object],
+//         hash: 'fe5d28d7dce19fac1ff7e5ff1b35424f8a0a00e880d41dc1b0ebb3ceea1e8d3b'
+//       },
+//       Symbol(state) => {
+//         state: [Object],
+//         hash: '13bf4b29d40889e141ba8422106112be3c31ab3b2eb66ec5f5a86120c95b7cec'
+//       },
+//       'DialogStateManagerConfiguration' => { memoryScopes: [Array], pathResolvers: [Array] },
+//       'turn' => { activity: [Object], lastresult: 'Oi' },
+//       Symbol(ActivityReceivedEmitted) => true
+//     },
+//     _onSendActivities: [],
+//     _onUpdateActivity: [],
+//     _onDeleteActivity: [],
+//     _turn: 'turn',
+//     _locale: 'locale',
+//     bufferedReplyActivities: [],
+//     _adapter: ChatwootAdapter {
+//       middleware: MiddlewareSet { middleware: [] },
+//       BotIdentityKey: Symbol(BotIdentity),
+//       ConnectorClientKey: Symbol(ConnectorClient),
+//       OAuthScopeKey: Symbol(OAuthScope),
+//       options: {
+//         accessToken: 'ySidCbU3HGbNvSFFVdmry7Ta',
+//         accountId: '102521',
+//         host: 'https://app.chatwoot.com',
+//         apiVersion: 'v1'
+//       },
+//       api: [Function: wrap] {
+//         constructor: [Function: wrap],
+//         request: [Function: wrap],
+//         _request: [Function: wrap],
+//         getUri: [Function: wrap],
+//         delete: [Function: wrap],
+//         get: [Function: wrap],
+//         head: [Function: wrap],
+//         options: [Function: wrap],
+//         post: [Function: wrap],
+//         postForm: [Function: wrap],
+//         put: [Function: wrap],
+//         putForm: [Function: wrap],
+//         patch: [Function: wrap],
+//         patchForm: [Function: wrap],
+//         defaults: [Object],
+//         interceptors: [Object],
+//         create: [Function: create]
+//       },
+//       turnError: [AsyncFunction: onTurnErrorHandler]
+//     },
+//     _activity: {
+//       id: '68185525',
+//       type: 'message',
+//       timestamp: 2024-08-30T17:28:16.844Z,
+//       channelId: 'facebook',
+//       text: 'Oi',
+//       channelData: {
+//         event: 'message_created',
+//         conversation: [Object],
+//         sender: [Object]
+//       },
+//       label: '68185525',
+//       valueType: 'message_created',
+//       value: {
+//         event: 'message_created',
+//         conversation: [Object],
+//         sender: [Object]
+//       },
+//       conversation: {
+//         id: '31',
+//         isGroup: false,
+//         conversationType: 'message',
+//         tenantId: '102521',
+//         name: ''
+//       },
+//       from: { id: '155288383', name: 'Heloi Neto', properties: [Object] },
+//       recipient: { id: '46557', name: '' }
+//     }
+//   }
+
+// {
+//     account: { id: 102521, name: 'Heloi Neto' },
+//     additional_attributes: {},
+//     content_attributes: {},
+//     content_type: 'text',
+//     content: 'Oi',
+//     conversation: {
+//       additional_attributes: {},
+//       can_reply: true,
+//       channel: 'Channel::Whatsapp',
+//       contact_inbox: {
+//         id: 154552370,
+//         contact_id: 155288383,
+//         inbox_id: 46557,
+//         source_id: '554291477448',
+//         created_at: '2024-08-26T18:39:12.996Z',
+//         updated_at: '2024-08-26T18:39:12.996Z',
+//         hmac_verified: false,
+//         pubsub_token: 'gYLSDD87DZAUCA9vTdBkGqUk'
+//       },
+//       id: 27,
+//       inbox_id: 46557,
+//       messages: [ [Object] ],
+//       labels: [],
+//       meta: {
+//         sender: [Object],
+//         assignee: null,
+//         team: null,
+//         hmac_verified: false
+//       },
+//       status: 'pending',
+//       custom_attributes: {},
+//       snoozed_until: null,
+//       unread_count: 4,
+//       first_reply_created_at: null,
+//       priority: null,
+//       waiting_since: 1724953255,
+//       agent_last_seen_at: 0,
+//       contact_last_seen_at: 0,
+//       last_activity_at: 1724953391,
+//       timestamp: 1724953391,
+//       created_at: 1724953255
+//     },
+//     created_at: '2024-08-29T17:43:11.927Z',
+//     id: 68022472,
+//     inbox: { id: 46557, name: 'WhatsApp' },
+//     message_type: 'incoming',
+//     private: false,
+//     sender: {
+//       account: { id: 102521, name: 'Heloi Neto' },
+//       additional_attributes: {},
+//       avatar: '',
+//       custom_attributes: {},
+//       email: null,
+//       id: 155288383,
+//       identifier: null,
+//       name: 'Heloi Neto',
+//       phone_number: '+554291477448',
+//       thumbnail: ''
+//     },
+//     source_id: 'wamid.HBgMNTU0MjkxNDc3NDQ4FQIAEhgWM0VCMDAyMjQzQUI4OTc0Q0Y0OUQ4NQA=',
+//     event: 'message_created'
+//   }
+
+// [
+//     {
+//       id: 68022646,
+//       content: 'Oi',
+//       account_id: 102521,
+//       inbox_id: 46557,
+//       conversation_id: 27,
+//       message_type: 0,
+//       created_at: 1724953465,
+//       updated_at: '2024-08-29T17:44:25.516Z',
+//       private: false,
+//       status: 'sent',
+//       source_id: 'wamid.HBgMNTU0MjkxNDc3NDQ4FQIAEhgWM0VCMEY0OTc1NEJFQUNBRDdCMjlGRAA=',
+//       content_type: 'text',
+//       content_attributes: {},
+//       sender_type: 'Contact',
+//       sender_id: 155288383,
+//       external_source_ids: {},
+//       additional_attributes: {},
+//       processed_message_content: 'Oi',
+//       sentiment: {},
+//       conversation: {
+//         assignee_id: null,
+//         unread_count: 5,
+//         last_activity_at: 1724953465,
+//         contact_inbox: [Object]
+//       },
+//       sender: {
+//         additional_attributes: {},
+//         custom_attributes: {},
+//         email: null,
+//         id: 155288383,
+//         identifier: null,
+//         name: 'Heloi Neto',
+//         phone_number: '+554291477448',
+//         thumbnail: '',
+//         type: 'contact'
+//       }
+//     }
+//   ]
+//   {
+//     sender: {
+//       additional_attributes: {},
+//       custom_attributes: {},
+//       email: null,
+//       id: 155288383,
+//       identifier: null,
+//       name: 'Heloi Neto',
+//       phone_number: '+554291477448',
+//       thumbnail: '',
+//       type: 'contact'
+//     },
+//     assignee: null,
+//     team: null,
+//     hmac_verified: false
+//   }
+  

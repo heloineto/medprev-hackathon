@@ -1,0 +1,541 @@
+[
+  {
+    "partner": {
+      "id": "b908fb5b-0c85-44e6-959e-e1c4c6983f19",
+      "distance": "1000",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/partner/b908fb5b-0c85-44e6-959e-e1c4c6983f19.png",
+      "socialName": "Instituto de Saúde",
+      "facility": {
+        "id": "9888d58d-edc4-4484-bdf9-ec8a3729225e",
+        "name": null,
+        "IBGECode": "4106902",
+        "city": "Curitiba",
+        "state": "PR",
+        "type": "main",
+        "contacts": {
+          "email": "najara@institutodesaude.com.br",
+          "phones": ["4133042440"],
+          "whatsapp": "41991215567"
+        },
+        "rating": {
+          "fiveStars": {
+            "average": 4.857142857142857,
+            "count": 28,
+            "tiers": {
+              "one": 1,
+              "two": 0,
+              "three": 0,
+              "four": 0,
+              "five": 27
+            }
+          }
+        },
+        "zipcode": "80510030",
+        "addressLine1": "Rua Treze de Maio",
+        "addressLine2": "",
+        "number": "825",
+        "neighborhood": "São Francisco"
+      },
+      "score": 0
+    },
+    "professional": {
+      "id": "9c26e206-781d-4f3e-b808-7ba7fd83019d",
+      "honorific": "Dr.",
+      "name": "PABLO ANDRES TAPIA CARREÑO",
+      "gender": "MALE",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/professional/9c26e206-781d-4f3e-b808-7ba7fd83019d.png",
+      "rating": {
+        "fiveStars": {
+          "average": 4.333333333333333,
+          "count": 3,
+          "tiers": {
+            "one": 0,
+            "two": 0,
+            "three": 1,
+            "four": 0,
+            "five": 2
+          }
+        }
+      },
+      "licenses": [
+        {
+          "specialistQualificationRecord": "5967",
+          "specialtyName": "Oftalmologia",
+          "professionalLicenseCRM": "13673",
+          "professionalLicenseState": "PR"
+        }
+      ]
+    },
+    "procedures": [
+      {
+        "id": "9b6e575e-ff69-40d1-b4b0-0360de44be40",
+        "name": "Consulta em consultório - Oftalmologista (Oftalmologia)",
+        "code": "10101012 - 225265",
+        "type": "non laboratory",
+        "tussCode": "10101012",
+        "description": "",
+        "instructions": "",
+        "price": 202.5,
+        "availableForTelehealth": false
+      }
+    ],
+    "schedulesTypes": {
+      "scheduled": [
+        {
+          "id": "c6c94cc5-a704-4fe0-8fab-fd83954c9b94",
+          "slots": [],
+          "notes": "Chegar com 10 min de antecedência",
+          "type": "scheduled",
+          "minAge": "0",
+          "maxAge": "100",
+          "followUp": "0",
+          "waitingTime": null
+        }
+      ],
+      "arrivalOrder": [],
+      "flex": [],
+      "laboratorial": []
+    },
+    "score": "933",
+    "priceScore": "202.50",
+    "proceduresFoundScore": 1,
+    "distance": 985.79679511,
+    "timeZone": "America/Sao_Paulo",
+    "timeOffset": "UTC-03:00"
+  },
+  {
+    "partner": {
+      "id": "65c17922-3042-4e63-a0a3-ac495d871598",
+      "distance": "1000",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/partner/65c17922-3042-4e63-a0a3-ac495d871598.png",
+      "socialName": "Dr. Sérgio Araújo Neves",
+      "facility": {
+        "id": "bf4a4f85-a691-493e-9140-5d44443c59ac",
+        "name": null,
+        "IBGECode": "4106902",
+        "city": "Curitiba",
+        "state": "PR",
+        "type": "main",
+        "contacts": {
+          "email": "clinicadeolhos.drsergioneves@gmail.com",
+          "phones": ["4132234531"]
+        },
+        "rating": {
+          "fiveStars": {
+            "average": 4.676470588235294,
+            "count": 544,
+            "tiers": {
+              "one": 18,
+              "two": 11,
+              "three": 15,
+              "four": 41,
+              "five": 459
+            }
+          }
+        },
+        "zipcode": "80020000",
+        "addressLine1": "Rua Voluntários da Pátria",
+        "addressLine2": "4º andar",
+        "number": "295",
+        "neighborhood": "Centro"
+      },
+      "score": 0
+    },
+    "professional": {
+      "id": "65c17922-3042-4e63-a0a3-ac495d871598",
+      "honorific": "Dr.",
+      "name": "Sérgio Araújo Neves",
+      "gender": "MALE",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/professional/65c17922-3042-4e63-a0a3-ac495d871598/thumbnail.png",
+      "rating": {
+        "fiveStars": {
+          "average": 4.599264705882353,
+          "count": 544,
+          "tiers": {
+            "one": 33,
+            "two": 11,
+            "three": 9,
+            "four": 35,
+            "five": 456
+          }
+        }
+      },
+      "licenses": [
+        {
+          "specialistQualificationRecord": "4630",
+          "specialtyName": "Oftalmologia",
+          "professionalLicenseCRM": "7525",
+          "professionalLicenseState": "PR"
+        }
+      ]
+    },
+    "procedures": [
+      {
+        "id": "9b6e575e-ff69-40d1-b4b0-0360de44be40",
+        "name": "Consulta em consultório - Oftalmologista (Oftalmologia)",
+        "code": "10101012 - 225265",
+        "type": "non laboratory",
+        "tussCode": "10101012",
+        "description": "",
+        "instructions": "<p>Pacientes usuários de lentes de contato: favor retirar no mínimo 24h antes do exame.\n\nESTE ATENDIMENTO NÃO É DESTINADO A LAUDOS, PERICIAS E AFINS.</p><p></p><p>ATENÇÃO. CHEGADA PARA ATENDIMENTO NO MINIMO 10 MINUTOS DE ANTECEDENCIA.</p>",
+        "price": 80,
+        "availableForTelehealth": false
+      }
+    ],
+    "schedulesTypes": {
+      "scheduled": [
+        {
+          "id": "b4f3d1ab-c220-42b4-b9f6-33563eaf534a",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "2",
+          "maxAge": "100",
+          "followUp": "15",
+          "waitingTime": null
+        },
+        {
+          "id": "fff55cf6-6cd5-46cf-a6b4-b19099bc2ae6",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "2",
+          "maxAge": "100",
+          "followUp": "15",
+          "waitingTime": null
+        }
+      ],
+      "arrivalOrder": [],
+      "flex": [],
+      "laboratorial": []
+    },
+    "score": "800",
+    "priceScore": "80.00",
+    "proceduresFoundScore": 1,
+    "distance": 1149.02777674,
+    "timeZone": "America/Sao_Paulo",
+    "timeOffset": "UTC-03:00"
+  },
+  {
+    "partner": {
+      "id": "d0b032f2-6b60-46ff-b2cb-9b484aded5fd",
+      "distance": "1000",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/partner/d0b032f2-6b60-46ff-b2cb-9b484aded5fd.png",
+      "socialName": "IMOC",
+      "facility": {
+        "id": "6036b195-7b15-48be-9d73-e1a84d6327c0",
+        "name": null,
+        "IBGECode": "4106902",
+        "city": "Curitiba",
+        "state": "PR",
+        "type": "main",
+        "contacts": {
+          "email": "imoc@imocsaude.com",
+          "phones": ["4130951995", "4130950995"],
+          "whatsapp": "41991490995"
+        },
+        "rating": {
+          "fiveStars": {
+            "average": 4.736379613356767,
+            "count": 569,
+            "tiers": {
+              "one": 11,
+              "two": 3,
+              "three": 17,
+              "four": 63,
+              "five": 475
+            }
+          }
+        },
+        "zipcode": "80010180",
+        "addressLine1": "Rua Barão do Rio Branco",
+        "addressLine2": "1º Andar",
+        "number": "63",
+        "neighborhood": "Centro"
+      },
+      "score": 0
+    },
+    "professional": {
+      "id": "f5dd1ed7-05cf-4774-8ad6-2e06bf67f396",
+      "honorific": "Dra.",
+      "name": "Ligia Pindanga",
+      "gender": "FEMALE",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/professional/f5dd1ed7-05cf-4774-8ad6-2e06bf67f396/thumbnail.png",
+      "rating": {
+        "fiveStars": {
+          "average": 4.582417582417582,
+          "count": 182,
+          "tiers": {
+            "one": 9,
+            "two": 5,
+            "three": 8,
+            "four": 9,
+            "five": 151
+          }
+        }
+      },
+      "licenses": [
+        {
+          "specialistQualificationRecord": "11641",
+          "specialtyName": "Oftalmologia",
+          "professionalLicenseCRM": "17484",
+          "professionalLicenseState": "PR"
+        }
+      ]
+    },
+    "procedures": [
+      {
+        "id": "9b6e575e-ff69-40d1-b4b0-0360de44be40",
+        "name": "Consulta em consultório - Oftalmologista (Oftalmologia)",
+        "code": "10101012 - 225265",
+        "type": "non laboratory",
+        "tussCode": "10101012",
+        "description": "",
+        "instructions": "",
+        "price": 74.5,
+        "availableForTelehealth": false
+      }
+    ],
+    "schedulesTypes": {
+      "scheduled": [
+        {
+          "id": "37a355a7-3066-4129-a38a-ee2410683fac",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "13",
+          "maxAge": "120",
+          "followUp": null,
+          "waitingTime": null
+        }
+      ],
+      "arrivalOrder": [],
+      "flex": [],
+      "laboratorial": []
+    },
+    "score": "790",
+    "priceScore": "74.50",
+    "proceduresFoundScore": 1,
+    "distance": 482.69772889,
+    "timeZone": "America/Sao_Paulo",
+    "timeOffset": "UTC-03:00"
+  },
+  {
+    "partner": {
+      "id": "4db2024c-0062-4935-9728-2f4e4e874120",
+      "distance": "1000",
+      "avatar": "https://api.medprev.app/storage/public/partner/4db2024c-0062-4935-9728-2f4e4e874120/avatar/0cac393d-0143-41fc-88ee-9a3facddfd81/thumbnail.png",
+      "socialName": "Clínica Del  Vitta",
+      "facility": {
+        "id": "e8307ed5-e9b8-4d3c-b292-faece369300b",
+        "name": null,
+        "IBGECode": "4106902",
+        "city": "Curitiba",
+        "state": "PR",
+        "type": "main",
+        "contacts": {
+          "email": "feliteix@gmail.com",
+          "phones": ["41998345656"],
+          "whatsapp": "41998345656"
+        },
+        "rating": {
+          "fiveStars": {
+            "average": 4.883587786259542,
+            "count": 524,
+            "tiers": {
+              "one": 0,
+              "two": 2,
+              "three": 6,
+              "four": 43,
+              "five": 473
+            }
+          }
+        },
+        "zipcode": "80020320",
+        "addressLine1": "Rua Marechal Deodoro (Galeria Ritz)",
+        "addressLine2": "Sala 210 - 2º andar",
+        "number": "51",
+        "neighborhood": "Centro"
+      },
+      "score": 0
+    },
+    "professional": {
+      "id": "d08b74fd-47ae-41d3-9175-b6e16420058a",
+      "honorific": "Dra.",
+      "name": "Jessika Masquieto - Oftalmologia",
+      "gender": "FEMALE",
+      "avatar": "https://api.medprev.app/storage/public/professional/d08b74fd-47ae-41d3-9175-b6e16420058a/avatar/4fbc109e-9e18-4413-b3bc-1ee1be5fdfa8/thumbnail.png",
+      "rating": {
+        "fiveStars": {
+          "average": 4.934959349593496,
+          "count": 246,
+          "tiers": {
+            "one": 2,
+            "two": 0,
+            "three": 2,
+            "four": 4,
+            "five": 238
+          }
+        }
+      },
+      "licenses": [
+        {
+          "specialistQualificationRecord": null,
+          "specialtyName": "Oftalmologia",
+          "professionalLicenseCRM": "45850",
+          "professionalLicenseState": "PR"
+        }
+      ]
+    },
+    "procedures": [
+      {
+        "id": "9b6e575e-ff69-40d1-b4b0-0360de44be40",
+        "name": "Consulta em consultório - Oftalmologista (Oftalmologia)",
+        "code": "10101012 - 225265",
+        "type": "non laboratory",
+        "tussCode": "10101012",
+        "description": "",
+        "instructions": "",
+        "price": 88,
+        "availableForTelehealth": false
+      }
+    ],
+    "schedulesTypes": {
+      "scheduled": [
+        {
+          "id": "021cd96d-a559-45f6-a8d8-bc94acacf65c",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "8",
+          "maxAge": "99",
+          "followUp": null,
+          "waitingTime": null
+        }
+      ],
+      "arrivalOrder": [],
+      "flex": [],
+      "laboratorial": []
+    },
+    "score": "776",
+    "priceScore": "88.00",
+    "proceduresFoundScore": 1,
+    "distance": 829.74167934,
+    "timeZone": "America/Sao_Paulo",
+    "timeOffset": "UTC-03:00"
+  },
+  {
+    "partner": {
+      "id": "67a6eb6b-9df6-4e29-90f9-a1e4a7c031a2",
+      "distance": "1000",
+      "avatar": "https://medprev-rest-api-files-prd.s3.sa-east-1.amazonaws.com/app/partner/partner/67a6eb6b-9df6-4e29-90f9-a1e4a7c031a2.png",
+      "socialName": "HULT Especialidades Médicas - Praça Rui Barbosa",
+      "facility": {
+        "id": "e0f78144-adf7-4add-85b1-eb8d693ebabc",
+        "name": null,
+        "IBGECode": "4106902",
+        "city": "Curitiba",
+        "state": "PR",
+        "type": "main",
+        "contacts": {
+          "email": "hultcentro@hultmedicina.com.br",
+          "phones": ["4132237483"],
+          "whatsapp": "41991117289"
+        },
+        "rating": {
+          "fiveStars": {
+            "average": 4.561832061068702,
+            "count": 655,
+            "tiers": {
+              "one": 28,
+              "two": 10,
+              "three": 30,
+              "four": 85,
+              "five": 502
+            }
+          }
+        },
+        "zipcode": "80010070",
+        "addressLine1": "Rua Senador Alencar Guimarães",
+        "addressLine2": "4º Andar",
+        "number": "250",
+        "neighborhood": "Centro"
+      },
+      "score": 0
+    },
+    "professional": {
+      "id": "560c63fb-bc8c-4852-bebd-eeedd01c5947",
+      "honorific": "Dr.",
+      "name": "João Paulo Salomão Kozar",
+      "gender": "MALE",
+      "avatar": "https://api.medprev.app/storage/public/professional/560c63fb-bc8c-4852-bebd-eeedd01c5947/avatar/b7f51b87-5818-48ae-8c88-45bd5dfd1e79/thumbnail.png",
+      "rating": {
+        "fiveStars": {
+          "average": 0,
+          "count": 0,
+          "tiers": {
+            "one": 0,
+            "two": 0,
+            "three": 0,
+            "four": 0,
+            "five": 0
+          }
+        }
+      },
+      "licenses": [
+        {
+          "specialistQualificationRecord": null,
+          "specialtyName": "Oftalmologia",
+          "professionalLicenseCRM": "56040",
+          "professionalLicenseState": "PR"
+        }
+      ]
+    },
+    "procedures": [
+      {
+        "id": "9b6e575e-ff69-40d1-b4b0-0360de44be40",
+        "name": "Consulta em consultório - Oftalmologista (Oftalmologia)",
+        "code": "10101012 - 225265",
+        "type": "non laboratory",
+        "tussCode": "10101012",
+        "description": "",
+        "instructions": "<p>- Trazer a última receita de óculos e exames (se houver)\n- Será atendido no Consultório da HULT Medicina no 1º Andar.</p>",
+        "price": 74.5,
+        "availableForTelehealth": false
+      }
+    ],
+    "schedulesTypes": {
+      "scheduled": [
+        {
+          "id": "6fa4f512-c4fb-44d2-8ede-0b922d41611d",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "16",
+          "maxAge": "99",
+          "followUp": null,
+          "waitingTime": null
+        },
+        {
+          "id": "ed01b5a9-39e0-478a-a3e0-545feec96f36",
+          "slots": [],
+          "notes": "",
+          "type": "scheduled",
+          "minAge": "16",
+          "maxAge": "99",
+          "followUp": null,
+          "waitingTime": null
+        }
+      ],
+      "arrivalOrder": [],
+      "flex": [],
+      "laboratorial": []
+    },
+    "score": "724",
+    "priceScore": "74.50",
+    "proceduresFoundScore": 1,
+    "distance": 1125.99593714,
+    "timeZone": "America/Sao_Paulo",
+    "timeOffset": "UTC-03:00"
+  }
+]
