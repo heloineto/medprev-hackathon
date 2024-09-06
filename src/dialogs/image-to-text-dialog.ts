@@ -44,20 +44,6 @@ export class ImageToTextDialog extends ComponentDialog {
       new WaterfallDialog(WATERFALL_DIALOG, [
         this.welcome.bind(this),
         this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
-        this.getAnotherImage.bind(this),
-        this.processImage.bind(this),
       ])
     );
 
@@ -106,28 +92,13 @@ export class ImageToTextDialog extends ComponentDialog {
         await stepContext.context.sendActivity(
           `Para realizar o agendamento desses exames, clique no link abaixo:\n\n${cartUrl}`
         );
+
+        await stepContext.context.sendActivity(
+          "Tchau tchau! Se precisar de mais alguma coisa, estou por aqui 👋💚"
+        );
       }
     }
 
-    return await stepContext.prompt(
-      CONFIRM_PROMPT,
-      phrases.askForAnotherImage()
-    );
-  }
-
-  private async getAnotherImage(
-    stepContext: WaterfallStepContext<UserProfile>
-  ) {
-    if (stepContext.result === false) {
-      await stepContext.context.sendActivity(
-        "Caso prefira, ou te enviar para o atendimento humano."
-      );
-
-      await stepContext.context.sendActivity({ type: "handoff" });
-
-      return await stepContext.endDialog();
-    }
-
-    return await stepContext.prompt(IMAGE_PROMPT, phrases.imagePrompt());
+    return await stepContext.endDialog();
   }
 }
