@@ -42,6 +42,8 @@ export class ImageToTextDialog extends ComponentDialog {
       new WaterfallDialog(WATERFALL_DIALOG, [
         this.welcome.bind(this),
         this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
       ])
     );
 
@@ -72,16 +74,19 @@ export class ImageToTextDialog extends ComponentDialog {
       attachment.contentType.startsWith("image")
     );
 
-    console.log("image", image);
+    await stepContext.context.sendActivity(
+      `Aqui estão os exames da imagem que você enviou:`
+    );
 
-    stepContext.context
-      .sendActivity(`Aqui estão os exames da imagem que você enviou:
+    return await stepContext.prompt(
+      CONFIRM_PROMPT,
+      phrases.askForAnotherImage()
+    );
+  }
 
-- Exame de sangue
-- Exame de urina
-- Exame de fezes
-`);
-
-    return await stepContext.endDialog();
+  private async getAnotherImage(
+    stepContext: WaterfallStepContext<UserProfile>
+  ) {
+    return await stepContext.prompt(IMAGE_PROMPT, phrases.imagePrompt());
   }
 }

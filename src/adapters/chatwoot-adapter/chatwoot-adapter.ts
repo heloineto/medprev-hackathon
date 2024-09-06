@@ -254,9 +254,9 @@ export class ChatwootAdapter extends BotAdapter {
       });
 
       const parsed = schema.safeParse(req.body);
-      console.log(req.body);
 
       if (!parsed.success) {
+        console.log(req.body);
         // write body to a dump.json file
         writeFileSync("dump.json", JSON.stringify(req.body, null, 2));
         console.error(parsed.error);
