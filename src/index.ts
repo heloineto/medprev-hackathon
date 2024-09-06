@@ -9,7 +9,7 @@ import { Bot } from "./bot";
 import { ChatwootAdapter } from "./adapters/chatwoot-adapter";
 import "./env";
 import { phrases } from "./phrases";
-import { PurchaseDialog } from "./dialogs/purchase-dialog";
+import { ImageToTextDialog } from "./dialogs/image-to-text-dialog";
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -58,7 +58,7 @@ const conversationState = new ConversationState(memoryStorage);
 const userState = new UserState(memoryStorage);
 
 // Create the main dialog.
-const dialog = new PurchaseDialog(userState);
+const dialog = new ImageToTextDialog(userState);
 const bot = new Bot(conversationState, userState, dialog);
 
 server.post("/api/messages", async (req, res) => {

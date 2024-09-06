@@ -5,18 +5,18 @@ import {
   UserState,
 } from "botbuilder";
 import { DialogState } from "botbuilder-dialogs";
-import { PurchaseDialog } from "./dialogs/purchase-dialog";
+import { ImageToTextDialog } from "./dialogs/image-to-text-dialog";
 
 export class Bot extends ActivityHandler {
   private conversationState: BotState;
   private userState: BotState;
-  private dialog: PurchaseDialog;
+  private dialog: ImageToTextDialog;
   private dialogState: StatePropertyAccessor<DialogState>;
 
   constructor(
     conversationState: BotState,
     userState: UserState,
-    dialog: PurchaseDialog
+    dialog: ImageToTextDialog
   ) {
     super();
 

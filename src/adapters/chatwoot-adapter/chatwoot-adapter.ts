@@ -1,7 +1,9 @@
+import { writeFileSync } from "node:fs";
 import axios, { AxiosInstance } from "axios";
 import {
   Activity,
   ActivityTypes,
+  Attachment,
   BotAdapter,
   Channels,
   ConversationReference,
@@ -219,7 +221,6 @@ export class ChatwootAdapter extends BotAdapter {
       // NOTE: "pending" means the conversation is not visible to attendants yet
       req.body.conversation?.status === "pending"
     ) {
-      // console.log(req.body.conversation.messages);
       // console.log(req.body.conversation.meta);
 
       const schema = z.object({
@@ -230,9 +231,10 @@ export class ChatwootAdapter extends BotAdapter {
           messages: z.array(
             z.object({
               id: z.number(),
-              content: z.string(),
+              content: z.string().nullable(),
               inbox_id: z.number(),
               account_id: z.number(),
+              attachments: z.array(z.record(z.unknown())).optional(),
               sender: z.object({
                 id: z.number(),
                 name: z.string(),
@@ -252,8 +254,11 @@ export class ChatwootAdapter extends BotAdapter {
       });
 
       const parsed = schema.safeParse(req.body);
+      console.log(req.body);
 
       if (!parsed.success) {
+        // write body to a dump.json file
+        writeFileSync("dump.json", JSON.stringify(req.body, null, 2));
         console.error(parsed.error);
         throw new Error("Invalid event payload.");
       }
@@ -270,12 +275,26 @@ export class ChatwootAdapter extends BotAdapter {
         type: ActivityTypes.Message,
         timestamp: new Date(),
         channelId: Channels.Facebook,
-        text: message.content,
+        text: message.content ?? "",
         channelData: body,
         // localTimezone: null,
         // callerId: null,
         // serviceUrl: null,
         // listenFor: null,
+        attachments: message.attachments?.map((attachment) => {
+          if (attachment.file_type === "image") {
+            return {
+              contentType: `image/${attachment.extension}`,
+              contentUrl: attachment.data_url,
+              thumbnailUrl: attachment.thumb_url,
+              content: attachment,
+            } as Attachment;
+          }
+
+          return {
+            contentType: "unknown",
+          };
+        }),
         label: message.id.toString(),
         valueType: body.event,
         value: body,

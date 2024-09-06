@@ -1,0 +1,153 @@
+{
+  "account": {
+    "id": 102521,
+    "name": "Heloi Neto"
+  },
+  "additional_attributes": {},
+  "content_attributes": {
+    "in_reply_to_external_id": null,
+    "in_reply_to": null
+  },
+  "content_type": "text",
+  "content": null,
+  "conversation": {
+    "additional_attributes": {},
+    "can_reply": true,
+    "channel": "Channel::Whatsapp",
+    "contact_inbox": {
+      "id": 154552370,
+      "contact_id": 155288383,
+      "inbox_id": 46557,
+      "source_id": "554291477448",
+      "created_at": "2024-08-26T18:39:12.996Z",
+      "updated_at": "2024-08-26T18:39:12.996Z",
+      "hmac_verified": false,
+      "pubsub_token": "gYLSDD87DZAUCA9vTdBkGqUk"
+    },
+    "id": 35,
+    "inbox_id": 46557,
+    "messages": [
+      {
+        "id": 69335651,
+        "content": null,
+        "account_id": 102521,
+        "inbox_id": 46557,
+        "conversation_id": 35,
+        "message_type": 0,
+        "created_at": 1725623896,
+        "updated_at": "2024-09-06T11:58:16.708Z",
+        "private": false,
+        "status": "sent",
+        "source_id": "wamid.HBgMNTU0MjkxNDc3NDQ4FQIAEhggQkU5NEEyOTM4QTBEMDMyM0U4RjNGNDlBNzg2RDFERDYA",
+        "content_type": "text",
+        "content_attributes": {
+          "in_reply_to_external_id": null,
+          "in_reply_to": null
+        },
+        "sender_type": "Contact",
+        "sender_id": 155288383,
+        "external_source_ids": {},
+        "additional_attributes": {},
+        "processed_message_content": null,
+        "sentiment": {},
+        "conversation": {
+          "assignee_id": null,
+          "unread_count": 10,
+          "last_activity_at": 1725623896,
+          "contact_inbox": {
+            "source_id": "554291477448"
+          }
+        },
+        "attachments": [
+          {
+            "id": 5124838,
+            "message_id": 69335651,
+            "file_type": "location",
+            "account_id": 102521,
+            "coordinates_lat": -25.4349543,
+            "coordinates_long": -49.2774598,
+            "fallback_title": "",
+            "data_url": null
+          }
+        ],
+        "sender": {
+          "additional_attributes": {},
+          "custom_attributes": {},
+          "email": null,
+          "id": 155288383,
+          "identifier": null,
+          "name": "Heloi Neto",
+          "phone_number": "+554291477448",
+          "thumbnail": "",
+          "type": "contact"
+        }
+      }
+    ],
+    "labels": [],
+    "meta": {
+      "sender": {
+        "additional_attributes": {},
+        "custom_attributes": {},
+        "email": null,
+        "id": 155288383,
+        "identifier": null,
+        "name": "Heloi Neto",
+        "phone_number": "+554291477448",
+        "thumbnail": "",
+        "type": "contact"
+      },
+      "assignee": null,
+      "team": null,
+      "hmac_verified": false
+    },
+    "status": "pending",
+    "custom_attributes": {},
+    "snoozed_until": null,
+    "unread_count": 10,
+    "first_reply_created_at": null,
+    "priority": null,
+    "waiting_since": 1725623145,
+    "agent_last_seen_at": 0,
+    "contact_last_seen_at": 0,
+    "last_activity_at": 1725623896,
+    "timestamp": 1725623896,
+    "created_at": 1725623145
+  },
+  "created_at": "2024-09-06T11:58:16.708Z",
+  "id": 69335651,
+  "inbox": {
+    "id": 46557,
+    "name": "WhatsApp"
+  },
+  "message_type": "incoming",
+  "private": false,
+  "sender": {
+    "account": {
+      "id": 102521,
+      "name": "Heloi Neto"
+    },
+    "additional_attributes": {},
+    "avatar": "",
+    "custom_attributes": {},
+    "email": null,
+    "id": 155288383,
+    "identifier": null,
+    "name": "Heloi Neto",
+    "phone_number": "+554291477448",
+    "thumbnail": ""
+  },
+  "source_id": "wamid.HBgMNTU0MjkxNDc3NDQ4FQIAEhggQkU5NEEyOTM4QTBEMDMyM0U4RjNGNDlBNzg2RDFERDYA",
+  "attachments": [
+    {
+      "id": 5124838,
+      "message_id": 69335651,
+      "file_type": "location",
+      "account_id": 102521,
+      "coordinates_lat": -25.4349543,
+      "coordinates_long": -49.2774598,
+      "fallback_title": "",
+      "data_url": null
+    }
+  ],
+  "event": "message_created"
+}

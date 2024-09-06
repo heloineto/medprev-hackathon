@@ -5,12 +5,11 @@ import {
   DialogSet,
   DialogTurnStatus,
   TextPrompt,
+  ActivityPrompt,
   WaterfallDialog,
   WaterfallStepContext,
-  ListStyle,
 } from "botbuilder-dialogs";
 import { phrases } from "../phrases";
-import axios from "axios";
 
 export class UserProfile {
   public name?: string;
@@ -19,19 +18,8 @@ export class UserProfile {
 const USER_PROFILE = "USER_PROFILE";
 const CONFIRM_PROMPT = "CONFIRM_PROMPT";
 const PROCEDURE_SEARCH_PROMPT = "PROCEDURE_SEARCH_PROMPT";
+const IMAGE_PROMPT = "IMAGE_PROMPT";
 const WATERFALL_DIALOG = "WATERFALL_DIALOG";
-const SEARCH_TYPES = [
-  "ONLINE_CONSULTATION",
-  "PRESENTIAL_CONSULTATION",
-  "LABORATORIAL_EXAM",
-  "DOCTOR",
-  "CLINIC",
-  "BRANCH_LABORATORY",
-  "VACCINE",
-  "IMAGE_EXAM",
-  "EMERGENCY",
-  "SURGERY",
-];
 
 export class PurchaseDialog extends ComponentDialog {
   private userProfile: StatePropertyAccessor<UserProfile>;
@@ -43,11 +31,21 @@ export class PurchaseDialog extends ComponentDialog {
     this.userProfile = userState.createProperty(USER_PROFILE);
 
     this.addDialog(new TextPrompt(PROCEDURE_SEARCH_PROMPT));
+    this.addDialog(
+      new ActivityPrompt(IMAGE_PROMPT, async (prompt) => {
+        return (
+          prompt.context.activity.attachments?.some((attachment) =>
+            attachment.contentType.startsWith("image")
+          ) || false
+        );
+      })
+    );
+
     this.addDialog(new ConfirmPrompt(CONFIRM_PROMPT, undefined, "pt-br"));
 
     this.addDialog(
       new WaterfallDialog(WATERFALL_DIALOG, [
-        this.procedureSearchStep.bind(this),
+        // this.procedureSearchStep.bind(this),
         this.requestLocationStep.bind(this),
         this.proceduresStep.bind(this),
         this.summaryStep.bind(this),
@@ -76,9 +74,13 @@ export class PurchaseDialog extends ComponentDialog {
   private async procedureSearchStep(
     stepContext: WaterfallStepContext<UserProfile>
   ) {
+    await stepContext.context.sendActivity(
+      phrases.welcome(stepContext.context.activity.from.name)
+    );
+
     return await stepContext.prompt(
       PROCEDURE_SEARCH_PROMPT,
-      phrases.welcome(stepContext.context.activity.from.name)
+      phrases.whatDoYouNeed()
     );
   }
 
@@ -106,13 +108,15 @@ export class PurchaseDialog extends ComponentDialog {
   }
 
   private async proceduresStep(stepContext: WaterfallStepContext<UserProfile>) {
-    const query = stepContext.result as string | undefined;
+    const query = stepContext.result;
 
-    const response = await axios.get(
-      `https://rest.medprev.app/search/search-by-type?limit=20&search=${query}`
-    );
+    console.log("query", query, stepContext.context.activity);
 
-    console.log("response", response.data);
+    // const response = await axios.get(
+    //   `https://rest.medprev.app/search/search-by-type?limit=20&search=${query}`
+    // );
+
+    // console.log("response", response.data);
 
     return await stepContext.prompt(CONFIRM_PROMPT, {
       prompt: phrases.confirmHandoff(),
