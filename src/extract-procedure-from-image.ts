@@ -5,15 +5,18 @@ import {
   Message,
 } from "@aws-sdk/client-bedrock-runtime";
 import axios from "axios";
+import { addProceduresToCart } from "./add-procedures-to-cart";
 
 const rekognition = new Rekognition({ region: "us-east-1" });
 const bedrock = new BedrockRuntimeClient({ region: "us-east-1" });
 
 export async function extractProceduresFromImageUrl(url: string) {
   const imageBytes = await getImageFromUrl(url);
-  const text = await detectText(imageBytes);
+  const [text] = (await detectText(imageBytes)) as Array<any>;
 
-  return text;
+  const procedures = await addProceduresToCart(text.text);
+
+  return procedures;
 }
 
 async function getImageFromUrl(url: string) {
@@ -47,8 +50,11 @@ function mapResultsToArray(results: any) {
 }
 
 async function filterOutProceduresOnBedrock(textArray: string[]) {
-  const modelId = "amazon.titan-tg1-large";
-  const userMessage = `Baseado no seguinte texto, organize em uma lista apenas os exames médicos. Não fale nada além dessa lista
+  const modelId = "amazon.titan-text-premier-v1:0";
+  const userMessage = `Baseado no seguinte texto, organize em uma lista apenas os exames médicos. Não fale nada além dessa lista,
+    em caso de Hemograma Com Contagem de Plaquetas ou Frações (Eritrograma Leucograma, Plaquetas), mostre apenas Hemograma
+    em caso de Potassio-Pesquisa E/ou Dosagem mostre apenas Potassio
+
      Exemplo:
       - Glicose
       - Hemoglobina
