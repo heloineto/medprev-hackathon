@@ -10,6 +10,7 @@ import { ChatwootAdapter } from "./adapters/chatwoot-adapter";
 import "./env";
 import { phrases } from "./phrases";
 import { ImageToTextDialog } from "./dialogs/image-to-text-dialog";
+import { extractProceduresFromImageUrl } from "./extract-procedure-from-image";
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -63,4 +64,10 @@ const bot = new Bot(conversationState, userState, dialog);
 
 server.post("/api/messages", async (req, res) => {
   await chatwootAdapter.process(req, res, (context) => bot.run(context));
+});
+
+server.post("/extract", async (req, res) => {
+  const { imageUrl } = req.body;
+  const result = await extractProceduresFromImageUrl(imageUrl);
+  res.send(result);
 });
