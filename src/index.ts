@@ -11,6 +11,7 @@ import "./env";
 import { phrases } from "./phrases";
 import { ImageToTextDialog } from "./dialogs/image-to-text-dialog";
 import { extractProceduresFromImageUrl } from "./extract-procedure-from-image";
+import { PurchaseDialog } from "./dialogs/purchase-dialog";
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -59,8 +60,9 @@ const conversationState = new ConversationState(memoryStorage);
 const userState = new UserState(memoryStorage);
 
 // Create the main dialog.
+const purchaseDialog = new PurchaseDialog(userState);
 const dialog = new ImageToTextDialog(userState);
-const bot = new Bot(conversationState, userState, dialog);
+const bot = new Bot(conversationState, userState, dialog, purchaseDialog);
 
 server.post("/api/messages", async (req, res) => {
   await chatwootAdapter.process(req, res, (context) => bot.run(context));

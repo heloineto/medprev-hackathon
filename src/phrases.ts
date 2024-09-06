@@ -1,9 +1,12 @@
 // prettier-ignore
 export const phrases = {
   welcome: (name?:string) => `Olá${name ? ` *${name}*` : ''}! Sou a Medy, a IA da Medprev.\n\nPosso te ajudar a encontrar consultas, exames, entre outros.`,
-  welcomeImage: (name?:string) => `Olá${name ? ` *${name}*` : ''}! Sou a Medy, a IA da Medprev.\n\nVou te ajudar a agendar seus exames.`,
+  welcomeImage: (name?:string) => `Olá${name ? ` *${name}*` : ''}! 👋😊\nSou a Medy, a IA da Medprev.\n\nVou te ajudar a agendar seus exames.`,
   imagePrompt: () => "Por favor, envie uma foto do pedido médico",
-  askForAnotherImage: () => "Você gostaria de enviar outra imagem?",
+  askForAnotherImage: () => "Você gostaria de enviar outra imagem? 🔄",
+  imageNotFound: () => '_Não foi possível encontrar exames na imagem_',
+  processingImage: () => "Estou processando a imagem, aguarde uns segundos... ⏳🔍",
+  noImageError: () => "Não consegui encontrar a imagem.",
   whatDoYouNeed: () => "O que você precisa?",
   welcomeBack: (name: string) => `Oi *${name}*, bom te ver de volta!`,
   confirmHandoff: () => "Você gostaria de conversar com um(a) atendente?",

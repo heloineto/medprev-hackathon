@@ -9,6 +9,7 @@ import {
   WaterfallStepContext,
 } from "botbuilder-dialogs";
 import { phrases } from "../phrases";
+import { extractProceduresFromImageUrl } from "../extract-procedure-from-image";
 
 export class UserProfile {
   public name?: string;
@@ -44,6 +45,18 @@ export class ImageToTextDialog extends ComponentDialog {
         this.processImage.bind(this),
         this.getAnotherImage.bind(this),
         this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
+        this.getAnotherImage.bind(this),
+        this.processImage.bind(this),
       ])
     );
 
@@ -74,9 +87,24 @@ export class ImageToTextDialog extends ComponentDialog {
       attachment.contentType.startsWith("image")
     );
 
-    await stepContext.context.sendActivity(
-      `Aqui estão os exames da imagem que você enviou:`
-    );
+    await stepContext.context.sendActivity(phrases.processingImage());
+
+    if (!image?.contentUrl) {
+      await stepContext.context.sendActivity(phrases.noImageError());
+    } else {
+      let examsResponse: string | undefined;
+      examsResponse = await extractProceduresFromImageUrl(image.contentUrl);
+
+      const exams = examsResponse;
+
+      if (!exams || exams === phrases.imageNotFound()) {
+        await stepContext.context.sendActivity(phrases.imageNotFound());
+      } else {
+        await stepContext.context.sendActivity(
+          `Aqui estão os exames da imagem que você enviou:\n\n${exams}`
+        );
+      }
+    }
 
     return await stepContext.prompt(
       CONFIRM_PROMPT,
@@ -87,6 +115,13 @@ export class ImageToTextDialog extends ComponentDialog {
   private async getAnotherImage(
     stepContext: WaterfallStepContext<UserProfile>
   ) {
+    if (stepContext.result === false) {
+      await stepContext.context.sendActivity(
+        "Ótimo, vou proseguir com o seu atendimento"
+      );
+      return await stepContext.endDialog();
+    }
+
     return await stepContext.prompt(IMAGE_PROMPT, phrases.imagePrompt());
   }
 }
