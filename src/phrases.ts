@@ -15,6 +15,7 @@ export const phrases = {
   locationRequest: () => "Vamos buscar procedimentos perto de você!\n\nPor favor, envie sua localização ou escreva seu CEP",
   confirmSearchParameters: (procedure: string, city: string) => `Pra confirmar, você quer de buscar *${procedure}* em *${city}*?`,
   error: () => "O bot encontrou um erro.",
+  funnyError: () => "Vixi, buguei! 🤖🔧",
   promptHandoff: () => "Parece que você está encontrando dificuldades. Gostaria de falar com um(a) atendente?",
   userAskedForHandoff: (name?: string) => `Sem problemas${name ? ` *${name}*` : ''}. Para conversar com um(a) atendente, é só pressionar o botão \"Confirmar\" abaixo.`,
 };

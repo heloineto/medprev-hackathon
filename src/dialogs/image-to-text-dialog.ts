@@ -10,6 +10,7 @@ import {
 } from "botbuilder-dialogs";
 import { phrases } from "../phrases";
 import { extractProceduresFromImageUrl } from "../extract-procedure-from-image";
+import { addProceduresToCart } from "../add-procedures-to-cart";
 
 export class UserProfile {
   public name?: string;
@@ -87,21 +88,23 @@ export class ImageToTextDialog extends ComponentDialog {
       attachment.contentType.startsWith("image")
     );
 
-    await stepContext.context.sendActivity(phrases.processingImage());
-
     if (!image?.contentUrl) {
       await stepContext.context.sendActivity(phrases.noImageError());
     } else {
-      let examsResponse: string | undefined;
-      examsResponse = await extractProceduresFromImageUrl(image.contentUrl);
-
-      const exams = examsResponse;
+      await stepContext.context.sendActivity(phrases.processingImage());
+      const { text: exams, cartUrl } = await extractProceduresFromImageUrl(
+        image.contentUrl
+      );
 
       if (!exams || exams === phrases.imageNotFound()) {
         await stepContext.context.sendActivity(phrases.imageNotFound());
       } else {
         await stepContext.context.sendActivity(
           `Aqui estão os exames da imagem que você enviou:\n\n${exams}`
+        );
+
+        await stepContext.context.sendActivity(
+          `Para realizar o agendamento desses exames, clique no link abaixo:\n\n${cartUrl}`
         );
       }
     }
@@ -117,8 +120,11 @@ export class ImageToTextDialog extends ComponentDialog {
   ) {
     if (stepContext.result === false) {
       await stepContext.context.sendActivity(
-        "Ótimo, vou proseguir com o seu atendimento"
+        "Caso prefira, ou te enviar para o atendimento humano."
       );
+
+      await stepContext.context.sendActivity({ type: "handoff" });
+
       return await stepContext.endDialog();
     }
 

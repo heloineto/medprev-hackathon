@@ -10,8 +10,6 @@ import { ChatwootAdapter } from "./adapters/chatwoot-adapter";
 import "./env";
 import { phrases } from "./phrases";
 import { ImageToTextDialog } from "./dialogs/image-to-text-dialog";
-import { extractProceduresFromImageUrl } from "./extract-procedure-from-image";
-import { PurchaseDialog } from "./dialogs/purchase-dialog";
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -35,16 +33,10 @@ const chatwootAdapter = new ChatwootAdapter({
 
 // Catch-all for errors.
 const onTurnErrorHandler = async (context: TurnContext, error: Error) => {
-  // Send a trace activity, which will be displayed in Bot Framework Emulator
-  await context.sendTraceActivity(
-    "OnTurnError Trace",
-    `${error}`,
-    "https://www.botframework.com/schemas/error",
-    "TurnError"
-  );
+  console.error(error);
 
   // Send a message to the user
-  await context.sendActivity(phrases.error());
+  await context.sendActivity(phrases.funnyError());
 };
 
 // Set the onTurnError for the singleton CloudAdapter.
@@ -60,16 +52,9 @@ const conversationState = new ConversationState(memoryStorage);
 const userState = new UserState(memoryStorage);
 
 // Create the main dialog.
-const purchaseDialog = new PurchaseDialog(userState);
 const dialog = new ImageToTextDialog(userState);
-const bot = new Bot(conversationState, userState, dialog, purchaseDialog);
+const bot = new Bot(conversationState, userState, dialog);
 
 server.post("/api/messages", async (req, res) => {
   await chatwootAdapter.process(req, res, (context) => bot.run(context));
-});
-
-server.post("/extract", async (req, res) => {
-  const { imageUrl } = req.body;
-  const result = await extractProceduresFromImageUrl(imageUrl);
-  res.send(result);
 });

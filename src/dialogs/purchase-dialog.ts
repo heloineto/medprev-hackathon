@@ -22,13 +22,8 @@ const IMAGE_PROMPT = "IMAGE_PROMPT";
 const WATERFALL_DIALOG = "WATERFALL_DIALOG";
 
 export class PurchaseDialog extends ComponentDialog {
-  private userProfile: StatePropertyAccessor<UserProfile>;
-  private previousUserProfile?: UserProfile;
-
-  constructor(userState: UserState) {
+  constructor() {
     super("purchaseDialog");
-
-    this.userProfile = userState.createProperty(USER_PROFILE);
 
     this.addDialog(new TextPrompt(PROCEDURE_SEARCH_PROMPT));
     this.addDialog(
@@ -58,11 +53,6 @@ export class PurchaseDialog extends ComponentDialog {
   public async run(context: TurnContext, accessor: StatePropertyAccessor) {
     const dialogSet = new DialogSet(accessor);
     dialogSet.add(this);
-
-    this.previousUserProfile = await this.userProfile.get(
-      context,
-      new UserProfile()
-    );
 
     const dialogContext = await dialogSet.createContext(context);
     const results = await dialogContext.continueDialog();
@@ -98,12 +88,6 @@ export class PurchaseDialog extends ComponentDialog {
 
     console.log("query", query, stepContext.context.activity);
 
-    // const response = await axios.get(
-    //   `https://rest.medprev.app/search/search-by-type?limit=20&search=${query}`
-    // );
-
-    // console.log("response", response.data);
-
     return await stepContext.prompt(CONFIRM_PROMPT, {
       prompt: phrases.confirmHandoff(),
     });
@@ -111,14 +95,8 @@ export class PurchaseDialog extends ComponentDialog {
 
   private async summaryStep(stepContext: WaterfallStepContext<UserProfile>) {
     if (stepContext.result) {
-      const userProfile = await this.userProfile.get(
-        stepContext.context,
-        new UserProfile()
-      );
       const stepContextOptions = stepContext.options;
-      userProfile.name = stepContextOptions.name;
 
-      await stepContext.context.sendActivity(phrases.handoff(userProfile.name));
       await stepContext.context.sendActivity({ type: "handoff" });
     } else {
       await stepContext.context.sendActivity(phrases.endConversation());
