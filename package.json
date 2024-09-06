@@ -19,6 +19,8 @@
     },
     "dependencies": {
         "@aliyssium/botbuilder-adapter-whatsapp": "^1.0.3",
+        "@aws-sdk/client-bedrock-runtime": "^3.645.0",
+        "aws-sdk": "^2.1690.0",
         "axios": "^1.7.5",
         "botbuilder": "~4.22.1",
         "dotenv": "~8.2.0",
