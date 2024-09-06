@@ -6,15 +6,20 @@ import {
 } from "@aws-sdk/client-bedrock-runtime";
 import axios from "axios";
 import { phrases } from "./phrases";
+import { addProceduresToCart } from "./add-procedures-to-cart";
 
 const rekognition = new Rekognition({ region: "us-east-1" });
 const bedrock = new BedrockRuntimeClient({ region: "us-east-1" });
 
 export async function extractProceduresFromImageUrl(url: string) {
   const imageBytes = await getImageFromUrl(url);
-  const text = await detectText(imageBytes);
+  const [text] = (await detectText(imageBytes)) as unknown as [
+    { text: string }
+  ];
 
-  return text;
+  const procedures = await addProceduresToCart(text.text);
+
+  return procedures;
 }
 
 async function getImageFromUrl(url: string) {
